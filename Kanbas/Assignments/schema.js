@@ -25,9 +25,9 @@ const assignmentsSchema = new mongoose.Schema({
         default: "File Upload" 
     } ,
     assignTo: String,
-    due: Date,
-    availableFrom: Date,
-    availableUntil: Date
+    due: String,
+    availableFrom: String,
+    availableUntil: String
   },
   { collection: "assignments" }
 );

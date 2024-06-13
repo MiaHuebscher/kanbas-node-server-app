@@ -3,9 +3,9 @@ const quizzesSchema = new mongoose.Schema({
     _id: { type: String, index: false},
     title: { type: String, required: true},
     course: { type: String, required: true},
-    due: Date,
-    availableFrom: Date,
-    availableUntil: Date,
+    due: String,
+    availableFrom: String,
+    availableUntil: String,
     questions: String,
     points: String,
     quizType: {
