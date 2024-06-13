@@ -1,0 +1,8 @@
+import model from "./model.js";
+
+export const findAllCourseQuizzes = (cid) => model.find({course: cid});
+export const createQuiz = (quiz) => {
+    return model.create(quiz);
+};
+export const deleteQuiz = (quizId) => model.deleteOne({_id: quizId});
+export const updateQuiz = (quizId, quiz) => model.updateOne({_id: quizId}, {$set: quiz});
