@@ -20,20 +20,17 @@ const quizzesSchema = new mongoose.Schema({
     },
     instructions: String,
     shuffleAnswers: {
-        type: String, 
-        enum: ["true", "false"],
-        default: "true" 
+        type: Boolean, 
+        default: true 
     },
     timeLimit: {
-        type: String, 
-        enum: ["true", "false"],
-        default: "true"
+        type: Boolean, 
+        default: true
     },
     minutes: String,
     allowMultipleAttempts: {
-        type: String, 
-        enum: ["true", "false"],
-        default: "false"
+        type: Boolean, 
+        default: false
     },
     assignTo: String
   },
