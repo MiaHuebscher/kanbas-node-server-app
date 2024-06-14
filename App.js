@@ -1,7 +1,8 @@
 import "dotenv/config";
 import cors from "cors";
+import session from "express-session";
 //const MemoryStore = require('memorystore')(session) //new
-import { MemoryStore, session } from "express-session";
+import { MemoryStore } from "express-session"; // new
 import express from "express";
 import mongoose from "mongoose";
 import Hello from "./Hello.js";
