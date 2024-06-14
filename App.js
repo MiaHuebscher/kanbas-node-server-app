@@ -16,6 +16,18 @@ import UserRoutes from "./Kanbas/Users/routes.js";
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
 mongoose.connect(CONNECTION_STRING);
 
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose connected to ' + CONNECTION_STRING);
+});
+
+mongoose.connection.on('error', (err) => {
+  console.log('Mongoose connection error: ' + err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('Mongoose disconnected');
+});
+
 const app = express();
 app.use(cors({
     credentials: true,
