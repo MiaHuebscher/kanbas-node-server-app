@@ -1,8 +1,6 @@
 import "dotenv/config";
 import cors from "cors";
 import session from "express-session";
-//const MemoryStore = require('memorystore')(session) //new
-import { MemoryStore } from "express-session"; // new
 import express from "express";
 import mongoose from "mongoose";
 import Hello from "./Hello.js";
@@ -14,7 +12,14 @@ import QuizRoutes from "./Kanbas/Quizzes/routes.js";
 import UserRoutes from "./Kanbas/Users/routes.js";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
-mongoose.connect(CONNECTION_STRING);
+mongoose.connect(CONNECTION_STRING, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('MongoDB connected successfully');
+}).catch((err) => {
+  console.error('MongoDB connection error:', err);
+});
 
 mongoose.connection.on('connected', () => {
   console.log('Mongoose connected to ' + CONNECTION_STRING);
@@ -44,9 +49,7 @@ if (process.env.NODE_ENV !== "development") {
       sameSite: "none",
       secure: true,
       domain: process.env.NODE_SERVER_DOMAIN,
-    };
-    sessionOptions.store = new MemoryStore({
-      checkPeriod: 86400000 }) //new
+    }
   };
 app.use(session(sessionOptions));
 app.use(express.json());
