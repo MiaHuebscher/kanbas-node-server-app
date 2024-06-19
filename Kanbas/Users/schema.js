@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
     section: String,
     lastActivity: String,
     totalActivity: String,
+    enrollments: Array
   },
   { collection: "users" }
 );
