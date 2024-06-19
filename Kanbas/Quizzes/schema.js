@@ -6,7 +6,7 @@ const quizzesSchema = new mongoose.Schema({
     due: String,
     availableFrom: String,
     availableUntil: String,
-    questions: String,
+    questions: Array,
     points: String,
     quizType: {
         type: String, 
@@ -32,7 +32,25 @@ const quizzesSchema = new mongoose.Schema({
         type: Boolean, 
         default: false
     },
-    assignTo: String
+    assignTo: String,
+    status: String,
+    showCorrectAnswers: {
+        type: Boolean,
+        default: true
+    },
+    accessCode: String,
+    oneQuestionAtATime: {
+        type: Boolean, 
+        default: true
+    },
+    webcamRequired: {
+        type: Boolean,
+        default: false
+    },
+    lockQuestions: {
+        type: Boolean,
+        default: false
+    }
   },
   { collection: "quizzes" }
 );
