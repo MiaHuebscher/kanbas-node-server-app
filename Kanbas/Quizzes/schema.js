@@ -50,6 +50,18 @@ const quizzesSchema = new mongoose.Schema({
     lockQuestions: {
         type: Boolean,
         default: false
+    },
+    requiredToViewResults: {
+        type: Boolean, 
+        default: false
+    },
+    requireLockdownBrowser: {
+        type: Boolean,
+        default: false
+    },
+    viewResponses: {
+        type: Boolean,
+        default: true
     }
   },
   { collection: "quizzes" }
