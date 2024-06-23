@@ -7,7 +7,7 @@ const quizzesSchema = new mongoose.Schema({
     availableFrom: String,
     availableUntil: String,
     questions: Array,
-    points: String,
+    points: Number,
     quizType: {
         type: String, 
         enum: ["graded quiz", "practice quiz", "graded survey", "ungraded survey"],
