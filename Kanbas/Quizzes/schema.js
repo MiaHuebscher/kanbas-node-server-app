@@ -62,6 +62,10 @@ const quizzesSchema = new mongoose.Schema({
     viewResponses: {
         type: Boolean,
         default: true
+    },
+    attemptsAllowed: {
+        type: Number,
+        default: 1
     }
   },
   { collection: "quizzes" }
