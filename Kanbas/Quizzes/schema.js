@@ -27,7 +27,7 @@ const quizzesSchema = new mongoose.Schema({
         type: Boolean, 
         default: true
     },
-    minutes: String,
+    minutes: {type: String, default: "20"},
     allowMultipleAttempts: {
         type: Boolean, 
         default: false
